@@ -1,0 +1,86 @@
+/* 	pink: #FC5D73, rgb(252,93,115)
+	hot pink: #F11C52, rgb (241,28,82)
+	brown: #210000, rgb(33,0,0)
+	grey: #A3887F, rgb(163,136,127)
+	ivory: #F7D9BD, rgb(247,217,189)
+	*/
+	
+body {
+	background: #F7D9BD;
+	margin: 0 auto;
+}
+
+header {
+	color: #F11C52;
+	font-family: 'Emilys Candy', cursive;
+	font-size: 72px;
+	text-align: center;
+	text-shadow: 2px 3px 5px #fc5d72;
+	position: relative;
+}
+.card {
+	font-family: 'Emilys Candy', cursive;
+	font-size: 26px;
+	margin: 0 auto;
+	text-shadow: 2px 3px 5px #fc5d72;
+	width: 1200px;
+	border: solid 3px #FC5D73;
+}
+
+.square {
+	color: #210000;
+	display: inline-block;
+	border: solid 3px #F11C52;
+	padding: 10px;
+	text-align: center;
+	width:214px;
+	height: 220px;
+	vertical-align: middle;
+}
+
+.square:hover {
+	color: #F11C52;
+	cursor: pointer;
+	text-shadow: 2px 3px 5px #210000;
+		-webkit-transition-duration:0.5s;
+		-moz-transition-duration:0.5s;
+	transition-duration:0.5s;
+}
+
+.square.free.filled {
+	background:rgba(163,136,127,0.3);
+	color: #F11C52;
+	font-size: 38px;
+}
+.square.filled {
+	background: url("symbol.svg") no-repeat center top;
+		-webkit-background-size: 95% 95%; /* Saf3-4 */
+	    -moz-background-size: 95% 95%; /* FF3.6 */
+	background-size: 95% 95%; /* Opera, IE9, Saf5, Chrome, FF4 */
+}
+.square.filled span {
+	background: #900;
+	color: #fff;
+	line-height: 38px;
+}
+.win {
+	display: none;
+}
+.win.won {
+	display: auto;
+}
+footer {
+	color: #A3887F;
+	font-family: "Emilys Candy", cursive;
+	font-size: 20px;
+	line-height: 30px;
+	text-align: center;
+}
+footer a {
+	color: #FC5D73;
+	text-decoration: none;
+}
+footer a:hover {
+	font-family: "Miss Fajardose", cursive;
+	font-size: 26px;
+}
