@@ -1,4 +1,5 @@
-/* 	pink: #FC5D73, rgb(252,93,115)
+/* 	Color scheme:
+	pink: #FC5D73, rgb(252,93,115)
 	hot pink: #F11C52, rgb (241,28,82)
 	brown: #210000, rgb(33,0,0)
 	grey: #A3887F, rgb(163,136,127)
@@ -9,6 +10,7 @@ body {
 	background: #F7D9BD;
 	margin: 0 auto;
 }
+/* the "won" class gets applied to the body when the player has filled in five squares vertically or horizontally */
 
 header {
 	color: #F11C52;
@@ -16,15 +18,15 @@ header {
 	font-size: 72px;
 	text-align: center;
 	text-shadow: 2px 3px 5px #fc5d72;
-	position: relative;
 }
+
 .card {
+	border: solid 3px #FC5D73;
 	font-family: 'Emilys Candy', cursive;
 	font-size: 26px;
 	margin: 0 auto;
 	text-shadow: 2px 3px 5px #fc5d72;
 	width: 1200px;
-	border: solid 3px #FC5D73;
 }
 
 .square {
@@ -33,54 +35,164 @@ header {
 	border: solid 3px #F11C52;
 	padding: 10px;
 	text-align: center;
-	width:214px;
+	width: 214px;
 	height: 220px;
 	vertical-align: middle;
+	/* the combination of display: inline-block and vertical-align: middle here is NOT an error. Vertical-align middle affects the element iteself, not the element's *content*, when the element is set to display: inline-block. Removing the vertical alignment property will create a layout bug that looks like, but isn't, a clearfix fail. */
 }
 
+.square:focus,
 .square:hover {
 	color: #F11C52;
-	cursor: pointer;
+	cursor: pointer; /* shows the squares are clickable even though they are sections */
 	text-shadow: 2px 3px 5px #210000;
-		-webkit-transition-duration:0.5s;
-		-moz-transition-duration:0.5s;
-	transition-duration:0.5s;
+	-webkit-transition-duration: 0.5s;
+	-moz-transition-duration: 0.5s;
+	transition-duration: 0.5s;
 }
 
 .square.free.filled {
-	background:rgba(163,136,127,0.3);
+	background: rgba(163,136,127,0.3);
 	color: #F11C52;
 	font-size: 38px;
 }
+
 .square.filled {
 	background: url("symbol.svg") no-repeat center top;
-		-webkit-background-size: 95% 95%; /* Saf3-4 */
-	    -moz-background-size: 95% 95%; /* FF3.6 */
-	background-size: 95% 95%; /* Opera, IE9, Saf5, Chrome, FF4 */
+	-webkit-background-size: 66% 95%;/* Saf3-4 */
+	-moz-background-size: 66% 95%;/* FF3.6 */
+	background-size: 66% 95%;/* Opera, IE9, Saf5, Chrome, FF4 */
 }
 .square.filled span {
 	background: #900;
 	color: #fff;
 	line-height: 38px;
 }
+.won .square {
+	border-color: rgba(241,28,82,0.3);
+	color: rgba(33,0,0,0.3);
+}
+.won .square.filled span {
+	background: rgba(153,0,0,0.3);
+	color: rgba(255,255,255,0.3);
+}
 .win {
 	display: none;
 }
-.win.won {
-	display: auto;
+
+.won .win {
+	background: #fff;
+	-webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.18);
+	-moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.18);
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.18);
+	color: #F11C52;
+	display: block;
+	font-family: "Emilys Candy", cursive;
+	font-size: 26px;
+	left: 180px;
+	padding: 10px 40px;
+	position: absolute;
+	top: 90px;
+	width: 840px; /* .7 * 1200 */
+	z-index: 100;
 }
+/* The :before and :after elements create the stacked-paper effect. */
+.won .win:before {
+	background-color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.150);
+	-webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.19);
+	-moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.19);
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.19);
+	content: '';
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: -2px;
+	-webkit-transform: rotate(1deg);
+	-moz-transform: rotate(1deg);
+	-o-transform: rotate(1deg);
+	-ms-transform: rotate(1deg);
+	transform: rotate(1deg);
+	width: 100%;
+	z-index: -1;
+}
+.won .win:after {
+	background-color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.150);
+	-webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	content: '';
+	height: 100%;
+	left: -2px;
+	position: absolute;
+	top: 1px;
+	-webkit-transform: rotate(359deg);
+	-moz-transform: rotate(359deg);
+	-o-transform: rotate(359deg);
+	-ms-transform: rotate(359deg);
+	transform: rotate(359deg);
+	width: 100%;
+	z-index: -2;
+}
+
+.won .win p {
+	margin: 10px 0;
+}
+.won .win li {
+	display: none;
+}
+.won .win li.troll {
+	display: block;
+	list-style-type: none;
+	padding: 5px 0;
+}
+
+.won .win li.troll:before {
+	content: "\2665"; /* heart glyph */
+	font-size: 16px;
+	padding-right: 20px;
+}
+
+.won .win li a {
+	border-bottom: solid 1px #F11C52;
+	color: #F11C52;
+	text-decoration: none;
+}
+.won .win li a:focus,
+.won .win li a:hover {
+	text-shadow: 1px 1px 3px #000;
+}
+
+.won .win p.kittens {
+	color: #000;
+	font-size: 30px;
+	text-align: center;
+}
+.won .win iframe {
+	border: solid 20px #FC5D73;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	display: block;
+	margin: 0 auto;
+}
+
 footer {
 	color: #A3887F;
 	font-family: "Emilys Candy", cursive;
 	font-size: 20px;
 	line-height: 30px;
+	margin-top: 20px;
 	text-align: center;
+}
+footer p {
+	margin: 10px 0;
 }
 footer a {
 	color: #FC5D73;
 	text-decoration: none;
 }
+footer a:focus,
 footer a:hover {
-	font-family: "Miss Fajardose", cursive;
-	font-size: 26px;
+	border-bottom: solid 1px #F11C52;
 }
