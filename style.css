@@ -8,13 +8,13 @@
 	
 body {
 	background: #F7D9BD;
+	font-family: "Emilys Candy", cursive;
 	margin: 0 auto;
 }
 /* the "won" class gets applied to the body when the player has filled in five squares vertically or horizontally */
 
 header {
 	color: #F11C52;
-	font-family: 'Emilys Candy', cursive;
 	font-size: 72px;
 	text-align: center;
 	text-shadow: 2px 3px 5px #fc5d72;
@@ -22,7 +22,6 @@ header {
 
 .card {
 	border: solid 3px #FC5D73;
-	font-family: 'Emilys Candy', cursive;
 	font-size: 26px;
 	margin: 0 auto;
 	text-shadow: 2px 3px 5px #fc5d72;
@@ -87,7 +86,6 @@ header {
 	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.18);
 	color: #F11C52;
 	display: block;
-	font-family: "Emilys Candy", cursive;
 	font-size: 26px;
 	left: 180px;
 	padding: 10px 40px;
@@ -179,7 +177,6 @@ header {
 
 footer {
 	color: #A3887F;
-	font-family: "Emilys Candy", cursive;
 	font-size: 20px;
 	line-height: 30px;
 	margin-top: 20px;
