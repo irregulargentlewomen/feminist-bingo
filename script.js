@@ -22,7 +22,7 @@
   	['take-a-joke', "Can't you take a joke?", "Tell me something funny, and we'll see if I can take a joke."],
   	['feminists-a-bad-name', "You give feminists a bad name.", "Feminism is bigger and more complicated then just me."],
   	['old-fashioned-gentleman', "I'm just an old-fashioned gentleman.", "Causing other people pain has never been in fashion, nor is it gentle, especially when you know better."],
-  	['cute-when-angry', "You're so cute when you're angry.", "Don't condescend to me. My anger is not a toy for your amusement."],
+  	['cute-when-angry', "You're so cute when you're angry.", "You're so condescending when you're afraid of my point."],
   	['that-time-of-the-month', "Is it that time of the month?", "My feelings are real, even if it is \"that time of the month.\" (It's called a menstrual period, by the way. For future reference.) And it's rude to ask someone about her medical details."],
   	['victim-mentality', "You've just got a victim mentality.", "No, society daily makes it difficult for women to exist freely; I'm reacting to reality."],
   	['good-deep-dicking', "All you feminists need is a good deep-dicking.", "All I need is for the world to stop oppressing me because of my gender."],
