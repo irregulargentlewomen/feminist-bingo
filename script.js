@@ -95,7 +95,7 @@
                 };
 
             eachGridElement(function (x, y) {
-                if (x == 2 && y == 2) {
+                if (x === 2 && y === 2) {
                     card.append(sectionTag(x, y, "free-space", "I would listen to you if you weren't so angry."));
                     $('#2-2').addClass('free filled');
                 }
@@ -139,7 +139,6 @@
                 []
             ],
                 trueIfAllTrue = function (array) {
-                    console.log(array);
                     for (var x = 0; x < array.length; x++) {
                         if (!array[x]) {
                             return false;
@@ -159,13 +158,13 @@
                 }, function () {
                     var count;
                     for (var y = 0; y < 5; y++) {
-                        count = 0
+                        count = 0;
                         for (var x = 0; x < 5; x++) {
                             if (grid[x][y]) {
                                 count++;
                             }
                         }
-                        if (count == 5) {
+                        if (count === 5) {
                             return true;
                         }
                     }
@@ -195,8 +194,6 @@
                 }
             });
 
-            console.log(grid);
-
             for (i = winConditions.length - 1; i >= 0; i--) {
                 if (winConditions[i]()) {
                     win();
@@ -206,7 +203,7 @@
         },
 
         win = function () {
-            $('.win').addClass("won");
+            $('body').addClass("won");
         };
 
     $(document).ready(function () {
