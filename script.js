@@ -39,7 +39,7 @@
   	['ruin-his-life', "If you keep this up, you're going to ruin his life.", "I'm not doing anything. He decided to commit a crime. All I want is justice."],
   	['tawana-brawley', "Can you say \"Duke lacrosse team\"?", "The plural of anecdote is not data. <a href=\"http://www.rainn.org/get-information/statistics/reporting-rates\">54% of rapes</a> are not reported."],
   	['manga', "Just read manga like the rest of the girls.", "Gender doesn't determine what I enjoy'"],
-  	['jealous', "You're only jealous because you don't look like that.", "I'm only angry about what images are doing to real people's beliefs about themselves."],
+  	['jealous', "You're only jealous because you don't look like that.", "<em>No one</em> looks like that without a lot of artists working very hard behind the scenes."],
   	['dont-read-it', "If you don't like it, don't read it.", "The social narrative of what women are expected to do and be isn't something I can avoid."],
   	['censorship', "That's censorship!", "The right to free speech isn't the right to avoid being called on your bullshit."],
   	['realism-in-media', "No one wants realism in media.", "There's room for both realism and escapism in media."],
