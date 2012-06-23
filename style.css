@@ -150,6 +150,27 @@ header {
 	content: "\2665"; /* heart glyph */
 	font-size: 16px;
 	padding-right: 20px;
+	margin-left: -35px;
+}
+.won .win li.troll span {
+	font-style: italic;
+}
+.won .win li.troll .comment {
+	color: #FC5D73;
+	font-size: 22px;
+}
+.won .win li.troll .comment:before {
+	content: 'They told you ';
+	font-style: normal;
+}
+.won .win li.troll .retort {
+	display: block;
+	font-size: 30px;
+}
+.won .win li.troll .retort:before {
+	content: "You can try saying: ";
+	font-style: normal;
+	font-size: 20px;
 }
 
 .won .win li a {
