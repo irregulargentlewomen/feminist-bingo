@@ -11,7 +11,7 @@ body {
 	font-family: "Emilys Candy", cursive;
 	margin: 0 auto;
 }
-/* the "won" class gets applied to the body when the player has filled in five squares vertically or horizontally */
+/* the "won" class gets applied to the body when the player has filled in five squares vertically or horizontally, including the free square in the center. */
 
 header {
 	color: #F11C52;
@@ -37,7 +37,7 @@ header {
 	width: 214px;
 	height: 220px;
 	vertical-align: middle;
-	/* the combination of display: inline-block and vertical-align: middle here is NOT an error. Vertical-align middle affects the element iteself, not the element's *content*, when the element is set to display: inline-block. Removing the vertical alignment property will create a layout bug that looks like, but isn't, a clearfix fail. */
+	/* the combination of display: inline-block and vertical-align: middle here is NOT an error. Vertical-align middle affects the element itself, not the element's *content*, when the element is set to display: inline-block. Removing the vertical alignment property will create a layout bug that looks like, but isn't, a clearfix fail. */
 }
 
 .square:focus,

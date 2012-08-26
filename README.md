@@ -2,7 +2,7 @@ The Interactive Feminist Bingo Card is an interactive bingo card for the use of 
 
 Version
 _______
-The Interactive Feminist Bingo Card is currently in version 1.0, released July 1, 2012.
+The Interactive Feminist Bingo Card is currently in version 1.0, released September 1, 2012.
 
 Instructions
 ____________
