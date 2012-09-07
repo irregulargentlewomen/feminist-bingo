@@ -6,6 +6,11 @@
         return this.push.apply(this, rest);
     };
 
+    // The following section of code contains the source text for each bingo square. Each line takes the form
+    //   ['(slug)', "(square text)", "(rebuttal text)"],
+    // The "slug" should be a quick placeholder word describing the content of the square.
+    // If more than one word is needed, join them with hyphens - it won't work if you insert spaces.
+    // If you need to include double-quotes in any square or rebuttal (for example, to insert a hyperlink), then "escape" the quote like so - \". Since 
     var sourceArray = [
         ['feminine', "But I like my women feminine.", "That doesn't give you the right to impose a standard of beauty on anyone else."],
         ['equalist', "Feminists have got it all wrong; I'm an equalist.", "While there are certainly reasons not to identify with the mainstream feminist movement &mdash; see also <a href=\"http://en.wikipedia.org/wiki/Womanism\">womanism</a> &mdash; there's a difference between legitimate critiques and erasing misogyny."],
@@ -76,6 +81,19 @@
         ['real-issue', "Feminism is a distraction from the real issue here.", "It's called intersectionality. Love it. Trust it."]
     ],
 
+        // We're going to be doing this in a mostly functional style as opposed to an
+        // object-oriented one. Once the squares are assembled, the only relevant data about
+        // them is whether they're clicked or not (which is best handled by a simple true/false
+        // array) and which retort in the retorts list they correspond to (which is best handled
+        // by carrying it in data-* DOM attributes.) Building a bunch of Square objects might
+        // make the code mildly neater, by some lights, but that small elegance gain is IMO
+        // more than offset by the performance hit of maintaining all of that information in
+        // memory uselessly.
+        
+        // tl;dr: your author was playing with knockout.js all weekend, loved it, and feels weird
+        // about loving it because her first Javascript mentor was sufficiently performance-obsessed
+        // that he hated JQuery.
+
         generateSquares = function (data) {
             var x, y, card = $('.card'),
                 winList = $('.win ul'),
@@ -87,11 +105,11 @@
                 },
 
                 sectionTag = function (x, y, slug, content) {
-                    return '<section class="square" id="' + x + '-' + y + '"><span class="' + slug + '">' + content + '</span></section>';
+                    return '<section class="square" id="' + x + '-' + y + '"><span data-slug="' + slug + '">' + content + '</span></section>';
                 },
 
                 listTag = function (source) {
-                    return '<li class="' + source[0] + '"><span class="comment">' + source[1] + '</span><span class="retort">' + source[2] + '</span></li>';
+                    return '<li data-slug="' + source[0] + '"><span class="comment">' + source[1] + '</span><span class="retort">' + source[2] + '</span></li>';
                 };
 
             eachGridElement(function (x, y) {
