@@ -85,7 +85,7 @@
         // object-oriented one. Once the squares are assembled, the only relevant data about
         // them is whether they're clicked or not (which is best handled by a simple true/false
         // array) and which retort in the retorts list they correspond to (which is best handled
-        // by carrying it in data-* DOM attributes.) Building a bunch of Square objects might
+        // by carrying it in data-* DOM attributes). Building a bunch of Square objects might
         // make the code mildly neater, by some lights, but that small elegance gain is IMO
         // more than offset by the performance hit of maintaining all of that information in
         // memory uselessly.
@@ -93,6 +93,8 @@
         // tl;dr: your author was playing with knockout.js all weekend, loved it, and feels weird
         // about loving it because her first Javascript mentor was sufficiently performance-obsessed
         // that he hated JQuery.
+        
+        grid = [[],[],[],[],[]],
 
         generateSquares = function (data) {
             var x, y, card = $('.card'),
@@ -116,15 +118,18 @@
                 if (x === 2 && y === 2) {
                     card.append(sectionTag(x, y, "free-space", "I would listen to you if you weren't so angry."));
                     $('#2-2').addClass('free filled');
+                    grid[2][2] = true;
                 }
                 else {
                     var source = randomSource();
                     card.append(sectionTag(x, y, source[0], source[1]));
                     winList.append(listTag(source));
+                    grid[x][y] = false;
                 }
             });
         },
 
+        // maps the given function over a 5x5 set of indices
         eachGridElement = function (block) {
             for (x = 0; x < 5; x++) {
                 for (y = 0; y < 5; y++) {
@@ -149,14 +154,7 @@
         },
 
         checkForWin = function () {
-            var grid = [
-                [],
-                [],
-                [],
-                [],
-                []
-            ],
-                trueIfAllTrue = function (array) {
+            var trueIfAllTrue = function (array) {
                     for (var x = 0; x < array.length; x++) {
                         if (!array[x]) {
                             return false;
@@ -202,15 +200,6 @@
                     }
                     return true;
                 }];
-
-            eachGridElement(function (x, y) {
-                if ($('#' + x + '-' + y).hasClass('filled')) {
-                    grid[x][y] = true;
-                }
-                else {
-                    grid[x][y] = false;
-                }
-            });
 
             for (i = winConditions.length - 1; i >= 0; i--) {
                 if (winConditions[i]()) {
