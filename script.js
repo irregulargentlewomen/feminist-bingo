@@ -90,9 +90,13 @@
         // more than offset by the performance hit of maintaining all of that information in
         // memory needlessly.
         
-        // tl;dr: your author was playing with knockout.js all weekend, loved it, and feels weird
+        // (tl;dr: your author was playing with knockout.js all weekend, loved it, and feels weird
         // about loving it because her first Javascript mentor was sufficiently performance-obsessed
-        // that he hated JQuery.
+        // that he hated JQuery.)
+        
+        // of course, one of the disadvantages of structuring things this way is that it's a bit
+        // harder to make the control flow self-documenting. ^^;; So - clicking on a square triggers
+        // fillSquare; fillSquare fires checkForWin; checkForWin sometimes fires "win."
         
         grid = [[],[],[],[],[]],
         winList = $('.win ul'),
@@ -152,9 +156,19 @@
             winList.find('[data-slug="'+square.data(slug)+'"]').addClass("troll");
             grid[coords[0]][coords[1]] = true;
 
-            // someday when I care that much I should probably make a custom event to trigger this
             checkForWin();
         },
+
+        // right now we're checking for win by having a list of "win conditions" and evaluating
+        // each in turn. A win condition is a function which traverses the grid and returns true
+        // iff it finds that (at least one of) the lines (or other shapes) that it's checking
+        // for is entirely composed of true squares. If/as soon as any of the win conditions
+        // returns true, "win" is triggered.
+        
+        // This algorithm subject to revision if/when I think of a better approach - I like the
+        // flexibility this gives but I hatehatehate the fact that it requires all squares to be
+        // read multiple times. (note to self for future: try something with Array#push &
+        // length-checking? or just incrementing a set of counters?)
 
         checkForWin = function () {
             var trueIfAllTrue = function (array) {
@@ -166,7 +180,7 @@
                     return true;
                 },
                 winConditions = [
-
+                // horizontal line
                 function () {
                     for (var x = 0; x < 5; x++) {
                         if (trueIfAllTrue(grid[x])) {
@@ -174,7 +188,9 @@
                         }
                     }
                     return false;
-                }, function () {
+                },
+                // vertical line
+                function () {
                     var count;
                     for (var y = 0; y < 5; y++) {
                         count = 0;
@@ -188,14 +204,18 @@
                         }
                     }
                     return false;
-                }, function () {
+                },
+                // diagonals, part one (\)
+                function () {
                     for (var i = 0; i < 5; i++) {
                         if (!grid[i][i]) {
                             return false;
                         }
                     }
                     return true;
-                }, function () {
+                },
+                // diagonals, part two (\)
+                function () {
                     for (var i = 0; i < 5; i++) {
                         if (!grid[4 - i][i]) {
                             return false;
