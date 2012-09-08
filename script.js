@@ -88,7 +88,7 @@
         // by carrying it in data-* DOM attributes). Building a bunch of Square objects might
         // make the code mildly neater, by some lights, but that small elegance gain is IMO
         // more than offset by the performance hit of maintaining all of that information in
-        // memory uselessly.
+        // memory needlessly.
         
         // tl;dr: your author was playing with knockout.js all weekend, loved it, and feels weird
         // about loving it because her first Javascript mentor was sufficiently performance-obsessed
@@ -107,7 +107,7 @@
                 },
 
                 sectionTag = function (x, y, slug, content) {
-                    return '<section class="square" id="' + x + '-' + y + '"><span data-slug="' + slug + '">' + content + '</span></section>';
+                    return '<section class="square" id="' + x + '-' + y + '" data-slug="' + slug + '"><span>' + content + '</span></section>';
                 },
 
                 listTag = function (source) {
@@ -146,8 +146,10 @@
         },
 
         fillSquare = function (square) {
+            var coords = square.attr('id').split('-');
             square.addClass('filled');
-            $(".win ul").find('.' + square.find('span').attr('class')).addClass("troll");
+            $(".win ul").find('[data-slug="'+square.data(slug)+'"]').addClass("troll");
+            grid[coords[0]][coords[1]] = true;
 
             // someday when I care that much I should probably make a custom event to trigger this
             checkForWin();
