@@ -95,10 +95,11 @@
         // that he hated JQuery.
         
         grid = [[],[],[],[],[]],
+        winList = $('.win ul'),
 
         generateSquares = function (data) {
             var x, y, card = $('.card'),
-                winList = $('.win ul'),
+                
                 randomSource = function () {
                     var index = Math.floor(Math.random() * sourceArray.length),
                         result = sourceArray[index];
@@ -148,7 +149,7 @@
         fillSquare = function (square) {
             var coords = square.attr('id').split('-');
             square.addClass('filled');
-            $(".win ul").find('[data-slug="'+square.data(slug)+'"]').addClass("troll");
+            winList.find('[data-slug="'+square.data(slug)+'"]').addClass("troll");
             grid[coords[0]][coords[1]] = true;
 
             // someday when I care that much I should probably make a custom event to trigger this
