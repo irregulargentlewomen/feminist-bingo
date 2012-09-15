@@ -163,6 +163,7 @@
 
         win = function () {
             $('body').addClass("won");
+            $("html, body").animate({ scrollTop: 0 }, "fast");
         };
 
     $(document).ready(function () {
