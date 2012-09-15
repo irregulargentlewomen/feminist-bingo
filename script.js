@@ -72,11 +72,14 @@
             }
         },
 
+        // a specific playlist is used so that we better ensure sure no triggery videos are accidentally returned by Google's search algorithm
         getKittenVideo = function () {
-            var url = "https://gdata.youtube.com/feeds/api/videos?q=cute+kitten&orderby=rating&max-results=1&v=2&alt=json&start-index=" + Math.floor(Math.random() * 100);
+            var url = "https://gdata.youtube.com/feeds/api/playlists/PL2A2C191E3D22BAF4?v=2";
             $.get(url, function (data) {
-                $('#video').attr('src', data.feed.entry[0].content.src);
-            });
+                data = $(data);
+                entry = $(data.find('entry')[Math.floor(Math.random() * 19)]);
+                $('#video').attr('src', entry.find('content').attr('src'));
+            }, "xml");
         },
 
         fillSquare = function (square) {
