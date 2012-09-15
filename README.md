@@ -36,3 +36,7 @@ _____
 - make the card's layout liquid, or at least elastic
 - refine some of the suggested responses
 - test on touchscreen devices
+- make cards pasteable and saveable
+- allow users to filter the potential-squares list by category
+- allow users to pick and choose which set of bingo rules to follow
+- make win-detection algorithm more efficient
