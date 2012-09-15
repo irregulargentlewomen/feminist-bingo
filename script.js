@@ -32,8 +32,15 @@
                 used_indices = [],
                 sources = winList.find('li'),
                 
+                randomIndex = function() {
+                    return Math.floor(Math.random() * sources.length);
+                }
+                
                 randomSource = function () {
-                    var index = Math.floor(Math.random() * sources.length);
+                    for(var index = randomIndex();
+                        used_indices.indexOf(index) != -1;
+                        index = randomIndex());
+                    used_indices.push(index);
                     return $(sources[index]);
                 },
 
