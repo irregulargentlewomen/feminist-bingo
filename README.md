@@ -2,7 +2,7 @@ The Interactive Feminist Bingo Card is an interactive bingo card for the use of 
 
 Version
 _______
-The Interactive Feminist Bingo Card is currently in version 1.0, released September 1, 2012.
+The Interactive Feminist Bingo Card is currently in version 1.0, released September 15, 2012.
 
 Instructions
 ____________
@@ -12,7 +12,7 @@ In order to "win" the bingo game, the player must "fill" (i.e., click) on five s
 Copyright and licensing
 _______________________
 
-The Interactive Feminist Bingo Card is a project of the [Irregular Gentlewomen](https://github.com/irregulargentlewomen): [Betsy Haibel] (http://twitter.com/#!/betsythemuffin) and [Elizabeth Yalkut] (http://www.elizabethyalkut.com). It is released under a [Creative Commons Attribution Non-Commercial Share-Alike License] (http://creativecommons.org/licenses/by-nc-sa/3.0/). The code is [available on Github] (https://github.com/irregulargentlewomen/feminist-bingo).
+The Interactive Feminist Bingo Card is a project of the [Irregular Gentlewomen](https://github.com/irregulargentlewomen): [Betsy Haibel] (http://twitter.com/#!/betsythemuffin) and [Elizabeth Yalkut] (http://www.elizabethyalkut.com). It is released under a [Creative Commons Attribution Non-Commercial Share-Alike License](http://creativecommons.org/licenses/by-nc-sa/3.0/). The code is [available on Github] (https://github.com/irregulargentlewomen/feminist-bingo).
 
 Requirements
 ____________
@@ -27,7 +27,7 @@ Both the CSS and JavaScript are extensively commented.
 Acknowledgements
 ________________
 
-The color scheme is "[girly girl]" (http://www.colourlovers.com/palette/1302300/girly_girl) by [earlgrey] (http://www.colourlovers.com/lover/earlgrey). The appearance of bingo squares once they have been selected was inspired by Barbara Kruger's [Your Body is a Battleground] (http://broadartfoundation.org/artist_43.html) (1976).
+The color scheme is [girly girl] (http://www.colourlovers.com/palette/1302300/girly_girl) by [earlgrey] (http://www.colourlovers.com/lover/earlgrey). The appearance of bingo squares once they have been selected was inspired by Barbara Kruger's [Your Body is a Battleground](http://broadartfoundation.org/artist_43.html) (1976).
 
 To-do
 _____
