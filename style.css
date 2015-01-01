@@ -137,11 +137,18 @@ header {
 .won .win p {
 	margin: 10px 0;
 }
+.won .win ul {
+	    -moz-column-count: 2; -moz-column-gap: 40px;
+		-webkit-column-count: 2; -webkit-column-gap: 40px; 
+	column-count: 2;
+	column-gap: 40px;
+	padding-left: 0;
+}
 .won .win li {
 	display: none;
 }
 .won .win li.troll {
-	display: block;
+	display: inline-block;
 	list-style-type: none;
 	padding: 5px 0;
 }
@@ -149,8 +156,6 @@ header {
 .won .win li.troll:before {
 	content: "\2665"; /* heart glyph */
 	font-size: 16px;
-	padding-right: 20px;
-	margin-left: -35px;
 }
 .won .win li.troll span {
 	font-style: italic;
